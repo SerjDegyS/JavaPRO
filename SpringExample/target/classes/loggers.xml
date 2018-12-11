@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="consoleEventLogger" class="com.degys.spring.core.loggers.ConsoleEventLogger"/>
+
+    <bean id="fileEventLogger" class="com.degys.spring.core.loggers.FileEventLogger"
+          init-method="init">
+        <constructor-arg value="target/file-logger.txt"/>
+    </bean>
+
+    <bean id="cacheFileEventLogger" class="com.degys.spring.core.loggers.CacheFileEventLogger"
+          destroy-method="destroy" parent="fileEventLogger">
+        <constructor-arg index="1" value="3" />
+    </bean>
+
+    <bean id="combinedEventLogger" class="com.degys.spring.core.loggers.CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="consoleEventLogger"/>
+                <ref bean="fileEventLogger"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

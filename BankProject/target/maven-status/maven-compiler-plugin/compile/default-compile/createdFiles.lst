@@ -1,0 +1,15 @@
+Entity\CurrencyType.class
+DAO\TransactionDAO.class
+Services\ConsoleManagerServise.class
+Entity\Account.class
+Entity\Entyti.class
+AppConsole.class
+Entity\Transaction.class
+DAO\ClientDAO.class
+Services\ManagerService.class
+Entity\ExchangeRate.class
+DAO\ClientDAOIml.class
+Services\ClientService.class
+DAO\AccountDAO.class
+DAO\ExchangeRateDAO.class
+Entity\Client.class
